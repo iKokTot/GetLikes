@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apiGL import views
+from apiGL.views import VKExchangeTokenView, GetUserAlbum,GetUserPhotos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', views.index),
+    path('api/exchange-token/', VKExchangeTokenView.as_view(), name='exchange-token'),
+    path('api/get_user_album/', GetUserAlbum.as_view(), name='user_album'),
+    path('api/get_user_photos/', GetUserPhotos.as_view(), name='user_album')
 ]

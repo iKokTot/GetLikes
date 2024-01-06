@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import apiGL.apps
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apiGL.apps.ApiglConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +79,13 @@ WSGI_APPLICATION = 'GetLikes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'GetLikes',
+    'USER': 'postgres',
+    'PASSWORD': '@1K2i3l4l@',
+    'HOST': '127.0.0.1',
+    'PORT': '5432'
+}
 }
 
 
@@ -112,6 +120,7 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -124,4 +133,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '51822829'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = '1BfQugR1o4b3sS3xg8Gc'
-'66142d1666142d1666142d16256502edfb6661466142d160398892c2135f5028b2c57b3'
+access_token_app = '66142d1666142d1666142d16256502edfb6661466142d160398892c2135f5028b2c57b3'
